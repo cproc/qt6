@@ -1100,6 +1100,7 @@ function(add_ninja_command)
         COMMENT "Running ninja for ${arg_TARGET} in ${arg_BUILDDIR}"
         COMMAND Ninja::ninja
             ${NINJAFLAGS}
+            -v
             -C ${arg_BUILDDIR}
             ${arg_TARGET}
         USES_TERMINAL
