@@ -1044,6 +1044,7 @@ macro(append_toolchain_setup)
         endif()
     elseif(LINUX OR FREEBSD)
         get_gn_arch(cpu ${TEST_architecture_arch})
+        get_gn_os(os)
         list(APPEND gnArgArg
             custom_toolchain="${buildDir}/target_toolchain:target"
             host_toolchain="${buildDir}/host_toolchain:host"
@@ -1052,6 +1053,7 @@ macro(append_toolchain_setup)
             list(APPEND gnArgArg
                 v8_snapshot_toolchain="${buildDir}/v8_toolchain:v8"
                 target_cpu="${cpu}"
+                target_os="${os}"
             )
         else()
             list(APPEND gnArgArg host_cpu="${cpu}")
